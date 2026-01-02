@@ -1,0 +1,53 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+.search-container {
+  position: relative;
+  width: 280px; /* adjust */
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 40px 8px 12px; /* right side space for icon */
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.search-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+  pointer-events: none; /* click block panna */
+}
+
+
+
+/* Remove default body margin */
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.navy-header {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  background-color: #13183d;
+}
+
+/* Navbar text color */
+.navy-header .nav-link {
+  color: #fff;
+}
+
+.navy-header .nav-link:hover {
+  color: #f1f1f1;
+}
+
+#navbarContent{
+  justify-content: space-around;
+}
