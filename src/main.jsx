@@ -1,59 +1,32 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { HashRouter } from "react-router-dom";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 
+import App from "./UI/App";
+import Products from "./UI/Products";
+import ProductDetails from "./UI/productDetails";
+import Cart from "./UI/cart";
+import { CartContext } from "./UI/CartContext";
 
-
-import App from './UI/App'
-import "./App.css"
-import ProductDetails from './UI/productDetails'
-import Cart from './UI/cart'
-
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-
-import { CartContext } from './UI/CartContext'
-import Products from './UI/Products'
-
-
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
-    element: <App/>,
-     children: [
-      {
-        index: true,          // 👈 default page
-        element: <Products/>
-      },
-      {
-  path: "/products/:category",
-  element: <Products />
-},
-      { path: "productDetails/:id",
-       element: <ProductDetails /> },
-       { path: "cart", element: <Cart /> },
-       
-    ]
+    element: <App />,
+    children: [
+      { index: true, element: <Products /> },
+      { path: "products/:category", element: <Products /> },
+      { path: "productDetails/:id", element: <ProductDetails /> },
+      { path: "cart", element: <Cart /> },
+    ],
   },
-  
-      
   {
     path: "/cartContext",
-    element: <CartContext/>
+    element: <CartContext />,
   },
-  
+]);
 
-
-])
-
-
-
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <HashRouter>
-        <RouterProvider router={ router }/>
-</HashRouter>
-    
+    <RouterProvider router={router} />
   </StrictMode>
-  
-  
-)
+);
