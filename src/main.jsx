@@ -1,5 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { HashRouter } from "react-router-dom";
+
+
 
 import App from './UI/App'
 import "./App.css"
@@ -46,7 +49,11 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-      <RouterProvider router={ router }/>
+    <HashRouter>
+        <RouterProvider router={ router }/>
+</HashRouter>
+    
   </StrictMode>
+  
   
 )
